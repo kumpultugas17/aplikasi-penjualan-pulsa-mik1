@@ -1,3 +1,7 @@
+<?php
+include 'config/config.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +15,8 @@
    <link rel="shortcut icon" href="assets/img/favicon.png">
    <!-- bootstrap css -->
    <link rel="stylesheet" href="assets/plugins/bootstrap-5.2.3/css/bootstrap.min.css">
+   <!-- fontawesome -->
+   <link rel="stylesheet" href="assets/plugins/fontawesome-free-5.5.0-web/css/all.min.css">
    <!-- title -->
    <title>Dashboard - Aplikasi Penjualan Pulsa</title>
 </head>
@@ -28,22 +34,22 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                <li class="nav-item me-1">
-                  <a class="nav-link <?= $_GET['module'] == 'beranda' ? 'active' : '' ?>" aria-current="page" href="index.php?module=beranda">Beranda</a>
+                  <a class="nav-link <?= $_GET['module'] == 'beranda' ? 'active' : '' ?>" aria-current="page" href="index.php?module=beranda"><i class="fas fa-home"></i> Beranda</a>
                </li>
                <li class="nav-item me-1">
-                  <a class="nav-link <?= $_GET['module'] == 'pelanggan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=pelanggan">Pelanggan</a>
+                  <a class="nav-link <?= $_GET['module'] == 'pelanggan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=pelanggan"><i class="fas fa-user-friends"></i> Pelanggan</a>
                </li>
                <li class="nav-item me-1">
-                  <a class="nav-link <?= $_GET['module'] == 'pulsa' ? 'active' : '' ?>" aria-current="page" href="index.php?module=pulsa">Pulsa</a>
+                  <a class="nav-link <?= $_GET['module'] == 'pulsa' ? 'active' : '' ?>" aria-current="page" href="index.php?module=pulsa"><i class="fas fa-mobile-alt"></i> Pulsa</a>
                </li>
                <li class="nav-item me-1">
-                  <a class="nav-link <?= $_GET['module'] == 'penjualan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=penjualan">Penjualan</a>
+                  <a class="nav-link <?= $_GET['module'] == 'penjualan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=penjualan"><i class="fas fa-cart-plus"></i> Penjualan</a>
                </li>
                <li class="nav-item me-1">
-                  <a class="nav-link <?= $_GET['module'] == 'laporan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=laporan">Laporan</a>
+                  <a class="nav-link <?= $_GET['module'] == 'laporan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=laporan"><i class="fas fa-book"></i> Laporan</a>
                </li>
-               <li class="nav-item me-1">
-                  <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
+               <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
                </li>
             </ul>
          </div>
@@ -60,6 +66,8 @@
    <!-- include javascript -->
    <!-- bootstrap js -->
    <script src="assets/plugins/bootstrap-5.2.3/js/bootstrap.bundle.min.js"></script>
+   <!-- fontawesome js -->
+   <script src="assets/plugins/fontawesome-free-5.5.0-web/js/all.min.js"></script>
 </body>
 
 </html>
