@@ -15,8 +15,14 @@ session_start();
    <link rel="shortcut icon" href="assets/img/favicon.png">
    <!-- bootstrap css -->
    <link rel="stylesheet" href="assets/plugins/bootstrap-5.2.3/css/bootstrap.min.css">
-   <!-- fontawesome -->
+   <!-- fontawesome css -->
    <link rel="stylesheet" href="assets/plugins/fontawesome-free-5.5.0-web/css/all.min.css">
+   <!-- datatable css -->
+   <link rel="stylesheet" href="assets/plugins/DataTables/datatables.min.css">
+   <!-- jquery -->
+   <script src="assets/js/jquery-3.7.0.js"></script>
+   <!-- myStyle -->
+   <link rel="stylesheet" href="assets/css/style.css">
    <!-- title -->
    <title>Dashboard - Aplikasi Penjualan Pulsa</title>
 </head>
@@ -68,6 +74,21 @@ session_start();
    <script src="assets/plugins/bootstrap-5.2.3/js/bootstrap.bundle.min.js"></script>
    <!-- fontawesome js -->
    <script src="assets/plugins/fontawesome-free-5.5.0-web/js/all.min.js"></script>
+   <!-- datatable js -->
+   <script src="assets/plugins/DataTables/datatables.min.js"></script>
+   <!-- myScript -->
+   <script>
+      $(document).ready(function() {
+         // DataTable
+         let table = $('#dataTable').DataTable({
+            pageLength: 5,
+            lengthMenu: [
+               [5, 10, 20, -1],
+               [5, 10, 20, 'Todos']
+            ]
+         });
+      });
+   </script>
 </body>
 
 </html>
