@@ -1,8 +1,8 @@
 <?php
 require_once '../../config/config.php';
 if (isset($_POST['submit'])) {
-   $nama = $_POST['nama_pelanggan'];
-   $no_hp = $_POST['no_hp'];
+   $nama = htmlspecialchars($_POST['nama_pelanggan']);
+   $no_hp = htmlspecialchars($_POST['no_hp']);
 
    $query = $conn->query("INSERT INTO pelanggan (nama_pelanggan, no_hp) VALUES ('$nama', '$no_hp')");
 

@@ -2,8 +2,8 @@
 require_once '../../config/config.php';
 if (isset($_POST['submit'])) {
    $id_pelanggan = $_POST['id_pelanggan'];
-   $nama = $_POST['nama_pelanggan'];
-   $no_hp = $_POST['no_hp'];
+   $nama = htmlspecialchars($_POST['nama_pelanggan']);
+   $no_hp = htmlspecialchars($_POST['no_hp']);
 
    $query = $conn->query("UPDATE pelanggan SET nama_pelanggan='$nama', no_hp='$no_hp' WHERE id_pelanggan='$id_pelanggan'");
 
