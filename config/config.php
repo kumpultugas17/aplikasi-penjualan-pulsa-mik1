@@ -15,6 +15,11 @@ $data_pulsa = mysqli_fetch_assoc($pulsa);
 $get_pulsa = $data_pulsa['pls'];
 
 // penjualan
-// $penjualan = $conn->query("SELECT COUNT(id_penjualan) as pjl FROM penjualan");
-// $data_penjualan = mysqli_fetch_assoc($penjualan);
-// $get_penjualan = $data_penjualan['pjl'];
+$penjualan = $conn->query("SELECT COUNT(id_penjualan) as pjl FROM penjualan");
+$data_penjualan = mysqli_fetch_assoc($penjualan);
+$get_penjualan = $data_penjualan['pjl'];
+
+// pendapatan
+$pendapatan = $conn->query("SELECT SUM(harga_jual) as harga FROM penjualan");
+$data_pendapatan = mysqli_fetch_assoc($pendapatan);
+$get_pendapatan = $data_pendapatan['harga'];

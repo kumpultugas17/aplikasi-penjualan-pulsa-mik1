@@ -77,13 +77,21 @@
                            <form action="modules/pengguna/proses_edit.php" method="post">
                               <input type="hidden" name="id_pengguna" value="<?= $pgn['id_pengguna'] ?>">
                               <div class="modal-body px-4">
-                                 <div class="mb-3">
-                                    <label for="nama_pengguna" class="form-label">Nama pengguna</label>
+                                 <div class="mb-2">
+                                    <label for="nama_pengguna" class="form-label">Nama Pengguna</label>
                                     <input type="text" name="nama_pengguna" class="form-control" id="nama_pengguna" value="<?= $pgn['nama_pengguna'] ?>" autocomplete="off" required>
                                  </div>
                                  <div class="mb-2">
-                                    <label for="no_hp" class="form-label">No. Handphone</label>
-                                    <input type="number" name="no_hp" class="form-control" id="no_hp" value="<?= $pgn['no_hp'] ?>" autocomplete="off" required>
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" name="username" class="form-control" id="username" value="<?= $pgn['username'] ?>" autocomplete="off" required readonly>
+                                 </div>
+                                 <div class="mb-4">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan password baru" autocomplete="off">
+                                 </div>
+                                 <div class="mb-2">
+                                    <label for="konfirmasi" class="form-label">Konfirmasi</label>
+                                    <input type="password" name="konfirmasi" class="form-control" id="konfirmasi" placeholder="Ulangi password baru" autocomplete="off">
                                  </div>
                               </div>
                               <div class="modal-footer">
@@ -106,7 +114,7 @@
                            <form action="modules/pengguna/proses_hapus.php" method="post">
                               <div class="modal-body px-4">
                                  <input type="hidden" name="id_pengguna" value="<?= $pgn['id_pengguna'] ?>">
-                                 <div class="fs-6">Apakah pengguna <strong><?= $pgn['nama_pengguna'] ?></strong> dengan nomor handphone <strong><?= $pgn['no_hp'] ?></strong> akan dihapus?</div>
+                                 <div class="fs-6">Apakah pengguna <strong><?= $pgn['nama_pengguna'] ?></strong> dengan username <strong><?= $pgn['username'] ?></strong> akan dihapus?</div>
                               </div>
                               <div class="modal-footer">
                                  <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -133,7 +141,7 @@
          </div>
          <form action="modules/pengguna/proses_tambah.php" method="post">
             <div class="modal-body px-4">
-               <div class="mb-3">
+               <div class="mb-2">
                   <label for="nama_pengguna" class="form-label">Nama Pengguna</label>
                   <input type="text" name="nama_pengguna" class="form-control" id="nama_pengguna" placeholder="Masukkan nama pengguna" autocomplete="off" required>
                </div>

@@ -19,7 +19,7 @@
                <a class="nav-link <?= $_GET['module'] == 'pulsa' ? 'active' : '' ?>" aria-current="page" href="index.php?module=pulsa"><i class="fas fa-mobile-alt"></i> Pulsa</a>
             </li>
             <li class="nav-item me-1">
-               <a class="nav-link <?= $_GET['module'] == 'penjualan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=penjualan"><i class="fas fa-cart-plus"></i> Penjualan</a>
+               <a class="nav-link <?= $_GET['module'] == 'penjualan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=penjualan"><i class="fas fa-shopping-cart"></i> Penjualan</a>
             </li>
             <li class="nav-item me-1">
                <a class="nav-link <?= $_GET['module'] == 'laporan' ? 'active' : '' ?>" aria-current="page" href="index.php?module=laporan"><i class="fas fa-book"></i> Laporan</a>
