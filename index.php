@@ -23,6 +23,8 @@ session_start();
    <script src="assets/js/jquery-3.7.0.js"></script>
    <!-- myStyle -->
    <link rel="stylesheet" href="assets/css/style.css">
+   <!-- selectize css -->
+   <link rel="stylesheet" href="assets/plugins/selectize.js/css/selectize.bootstrap5.css">
    <!-- title -->
    <title>Dashboard - Aplikasi Penjualan Pulsa</title>
 </head>
@@ -44,6 +46,8 @@ session_start();
    <script src="assets/plugins/fontawesome-free-5.5.0-web/js/all.min.js"></script>
    <!-- datatable js -->
    <script src="assets/plugins/DataTables/datatables.min.js"></script>
+   <!-- selectize js -->
+   <script src="assets/plugins/selectize.js/js/selectize.min.js"></script>
    <!-- myScript -->
    <script>
       $(document).ready(function() {
@@ -55,7 +59,42 @@ session_start();
                [5, 10, 20, 'Todos']
             ]
          });
+
+         // Selectize
+         $(".select").selectize();
       });
+
+      // function menampilkan nama pelanggan secara otomatis
+      function get_pelanggan() {
+         let id_pelanggan = $('#pelanggan').val();
+         $.ajax({
+            type: "GET",
+            url: "modules/penjualan/get_pelanggan.php", // proses get data pelanggan berdasarkan id_pelanggan
+            data: {
+               id_pelanggan: id_pelanggan
+            },
+            dataType: "JSON",
+            success: function(result) {
+               // ketika sukses tampilkan data
+               $("#nama_pelanggan").val(result.nama_pelanggan);
+            }
+         });
+      }
+
+      function get_pulsa() {
+         let id_pulsa = $('#pulsa').val();
+         $.ajax({
+            type: "GET",
+            url: "modules/penjualan/get_pulsa.php",
+            data: {
+               id_pulsa: id_pulsa
+            },
+            dataType: "JSON",
+            success: function(result) {
+               $("#harga").val(result.harga);
+            }
+         });
+      }
    </script>
 </body>
 

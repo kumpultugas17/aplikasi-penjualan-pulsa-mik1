@@ -57,9 +57,9 @@
                   <tr>
                      <td><?= $no++; ?></td>
                      <td><?= $pjl['tanggal']; ?></td>
-<td><?= $pjl['nama_pelanggan'] . "<small class='text-muted'> - " . $pjl['no_hp'] . "</small>"; ?></td>
-<td><?= $pjl['operator'] . "<small class='text-muted'> - " . number_format($pjl['nominal'], 0, ',', '.') . "</small>"; ?></td>
-<td>Rp. <?= number_format($pjl['harga_jual'], 0, ',', '.'); ?></td>
+                     <td><?= $pjl['nama_pelanggan'] . "<small class='text-muted'> - " . $pjl['no_hp'] . "</small>"; ?></td>
+                     <td><?= $pjl['operator'] . "<small class='text-muted'> - " . number_format($pjl['nominal'], 0, ',', '.') . "</small>"; ?></td>
+                     <td>Rp. <?= number_format($pjl['harga_jual'], 0, ',', '.'); ?></td>
                      <td class="text-center">
                         <button type="button" data-bs-target="#editModal<?= $pjl['id_penjualan'] ?>" data-bs-toggle="modal" class="btn btn-sm text-white btn-info">
                            <i class="fas fa-edit"></i>
@@ -140,26 +140,49 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fas fa-user-plus"></i> Entry Data pengguna</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fas fa-cart-plus"></i> Entry Data Penjualan</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
-         <form action="modules/pengguna/proses_tambah.php" method="post">
+         <form action="modules/penjualan/proses_tambah.php" method="post">
             <div class="modal-body px-4">
                <div class="mb-2">
-                  <label for="nama_pengguna" class="form-label">Nama Pengguna</label>
-                  <input type="text" name="nama_pengguna" class="form-control" id="nama_pengguna" placeholder="Masukkan nama pengguna" autocomplete="off" required>
+                  <label for="tanggal" class="form-label">Tanggal</label>
+                  <input type="date" name="tanggal" class="form-control" id="tanggal" value="<?= date('Y-m-d') ?>" autocomplete="off" required>
                </div>
                <div class="mb-2">
-                  <label for="username" class="form-label">Username</label>
-                  <input type="text" name="username" class="form-control" id="username" placeholder="Masukkan username" autocomplete="off" required>
-               </div>
-               <div class="mb-4">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan password" autocomplete="off" required>
+                  <label for="pelanggan" class="form-label">Nomor Handphone</label>
+                  <select name="pelanggan" id="pelanggan" class="select" placeholder="Pilih nomor handphone" onchange="get_pelanggan()">
+                     <option value=""></option>
+                     <?php
+                     $pelanggan = $conn->query("SELECT * FROM pelanggan");
+                     foreach ($pelanggan as $plg) :
+                     ?>
+                        <option value="<?= $plg['id_pelanggan'] ?>"><?= $plg['no_hp'] ?></option>
+                     <?php endforeach ?>
+                  </select>
                </div>
                <div class="mb-2">
-                  <label for="konfirmasi" class="form-label">Konfirmasi Password</label>
-                  <input type="password" name="konfirmasi" class="form-control" id="konfirmasi" placeholder="Ulangi Password" autocomplete="off" required>
+                  <label for="nama_pelanggan" class="form-label">Nama Pelanggan</label>
+                  <input type="text" id="nama_pelanggan" class="form-control" readonly>
+               </div>
+               <div class="mb-2">
+                  <label for="pulsa" class="form-label">Pulsa</label>
+                  <select name="pulsa" id="pulsa" class="select" onchange="get_pulsa()">
+                     <option value=""></option>
+                     <?php
+                     $pulsa = $conn->query("SELECT * FROM pulsa");
+                     foreach ($pulsa as $pls) :
+                     ?>
+                        <option value="<?= $pls['id_pulsa'] ?>"><?= $pls['operator'] . " [" . $pls['nominal'] . "]"; ?></option>
+                     <?php endforeach ?>
+                  </select>
+               </div>
+               <div class="mb-2">
+                  <label for="harga" class="form-label">Harga</label>
+                  <div class="input-group">
+                     <span class="input-group-text">Rp.</span>
+                     <input type="number" id="harga" class="form-control">
+                  </div>
                </div>
             </div>
             <div class="modal-footer">
