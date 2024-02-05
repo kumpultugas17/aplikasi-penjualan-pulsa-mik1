@@ -95,6 +95,37 @@ session_start();
             }
          });
       }
+
+      function get_pelanggan_edit() {
+         let id_pelanggan = $('#pelanggan_edit').val();
+         $.ajax({
+            type: "GET",
+            url: "modules/penjualan/get_pelanggan.php", // proses get data pelanggan berdasarkan id_pelanggan
+            data: {
+               id_pelanggan: id_pelanggan
+            },
+            dataType: "JSON",
+            success: function(result) {
+               // ketika sukses tampilkan data
+               $("#nama_pelanggan_edit").val(result.nama_pelanggan);
+            }
+         });
+      }
+
+      function get_pulsa_edit() {
+         let id_pulsa = $('#pulsa_edit').val();
+         $.ajax({
+            type: "GET",
+            url: "modules/penjualan/get_pulsa.php",
+            data: {
+               id_pulsa: id_pulsa
+            },
+            dataType: "JSON",
+            success: function(result) {
+               $("#harga_edit").val(result.harga);
+            }
+         });
+      }
    </script>
 </body>
 

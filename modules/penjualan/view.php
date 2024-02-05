@@ -78,24 +78,47 @@
                               <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fas fa-user-edit"></i> Edit Data pengguna</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
-                           <form action="modules/pengguna/proses_edit.php" method="post">
+                           <form action="modules/penjualan/proses_edit.php" method="post">
                               <input type="hidden" name="id_penjualan" value="<?= $pjl['id_penjualan'] ?>">
                               <div class="modal-body px-4">
                                  <div class="mb-2">
-                                    <label for="nama_pengguna" class="form-label">Nama Pengguna</label>
-                                    <input type="text" name="nama_pengguna" class="form-control" id="nama_pengguna" value="<?= $pjl['nama_pengguna'] ?>" autocomplete="off" required>
+                                    <label for="tanggal" class="form-label">Tanggal</label>
+                                    <input type="date" name="tanggal" class="form-control" id="tanggal" value="<?= $pjl['tanggal'] ?>" autocomplete="off" required>
                                  </div>
                                  <div class="mb-2">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" name="username" class="form-control" id="username" value="<?= $pjl['username'] ?>" autocomplete="off" required readonly>
-                                 </div>
-                                 <div class="mb-4">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan password baru" autocomplete="off">
+                                    <label for="pelanggan" class="form-label">Nomor Handphone</label>
+                                    <select name="pelanggan_edit" id="pelanggan_edit" class="select" placeholder="Pilih nomor handphone" onchange="get_pelanggan_edit()">
+                                       <option value=""></option>
+                                       <?php
+                                       $pelanggan = $conn->query("SELECT * FROM pelanggan");
+                                       foreach ($pelanggan as $plg) :
+                                       ?>
+                                          <option value="<?= $plg['id_pelanggan'] ?>" <?= $plg['id_pelanggan'] == $pjl['pelanggan_id'] ? 'selected' : '' ?>><?= $plg['no_hp'] ?></option>
+                                       <?php endforeach ?>
+                                    </select>
                                  </div>
                                  <div class="mb-2">
-                                    <label for="konfirmasi" class="form-label">Konfirmasi</label>
-                                    <input type="password" name="konfirmasi" class="form-control" id="konfirmasi" placeholder="Ulangi password baru" autocomplete="off">
+                                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan</label>
+                                    <input type="text" id="nama_pelanggan_edit" class="form-control" readonly>
+                                 </div>
+                                 <div class="mb-2">
+                                    <label for="pulsa" class="form-label">Pulsa</label>
+                                    <select name="pulsa_edit" id="pulsa_edit" class="select" placeholder="Pilih operator" onchange="get_pulsa_edit()">
+                                       <option value=""></option>
+                                       <?php
+                                       $pulsa = $conn->query("SELECT * FROM pulsa");
+                                       foreach ($pulsa as $pls) :
+                                       ?>
+                                          <option value="<?= $pls['id_pulsa'] ?>" <?= $pls['id_pulsa'] == $pjl['pulsa_id'] ? 'selected' : '' ?>><?= $pls['operator'] . " [" . $pls['nominal'] . "]"; ?></option>
+                                       <?php endforeach ?>
+                                    </select>
+                                 </div>
+                                 <div class="mb-2">
+                                    <label for="harga" class="form-label">Harga</label>
+                                    <div class="input-group">
+                                       <span class="input-group-text">Rp.</span>
+                                       <input type="number" name="harga" id="harga_edit" class="form-control">
+                                    </div>
                                  </div>
                               </div>
                               <div class="modal-footer">
@@ -167,7 +190,7 @@
                </div>
                <div class="mb-2">
                   <label for="pulsa" class="form-label">Pulsa</label>
-                  <select name="pulsa" id="pulsa" class="select" onchange="get_pulsa()">
+                  <select name="pulsa" id="pulsa" class="select" placeholder="Pilih operator" onchange="get_pulsa()">
                      <option value=""></option>
                      <?php
                      $pulsa = $conn->query("SELECT * FROM pulsa");
@@ -181,7 +204,7 @@
                   <label for="harga" class="form-label">Harga</label>
                   <div class="input-group">
                      <span class="input-group-text">Rp.</span>
-                     <input type="number" id="harga" class="form-control">
+                     <input type="number" name="harga" id="harga" class="form-control">
                   </div>
                </div>
             </div>
