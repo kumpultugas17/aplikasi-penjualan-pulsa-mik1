@@ -25,6 +25,8 @@ session_start();
    <link rel="stylesheet" href="assets/css/style.css">
    <!-- selectize css -->
    <link rel="stylesheet" href="assets/plugins/selectize.js/css/selectize.bootstrap5.css">
+   <!-- datepicker css -->
+   <link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.min.css">
    <!-- title -->
    <title>Dashboard - Aplikasi Penjualan Pulsa</title>
 </head>
@@ -48,6 +50,8 @@ session_start();
    <script src="assets/plugins/DataTables/datatables.min.js"></script>
    <!-- selectize js -->
    <script src="assets/plugins/selectize.js/js/selectize.min.js"></script>
+   <!-- datepicker js -->
+   <script src="assets/plugins/datepicker/js/bootstrap-datepicker.min.js"></script>
    <!-- myScript -->
    <script>
       $(document).ready(function() {
@@ -62,6 +66,13 @@ session_start();
 
          // Selectize
          $(".select").selectize();
+      });
+
+      // datepicker
+      $('.date-picker').datepicker({
+         autoclose: true,
+         todayHighlight: true,
+         format: 'dd M yyyy'
       });
 
       // function menampilkan nama pelanggan secara otomatis

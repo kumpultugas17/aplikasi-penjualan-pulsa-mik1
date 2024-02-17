@@ -23,3 +23,28 @@ $get_penjualan = $data_penjualan['pjl'];
 $pendapatan = $conn->query("SELECT SUM(harga_jual) as harga FROM penjualan");
 $data_pendapatan = mysqli_fetch_assoc($pendapatan);
 $get_pendapatan = $data_pendapatan['harga'];
+
+function tgl_indo($tanggal)
+{
+   $bulan = array(
+      1 =>   'Januari',
+      'Februari',
+      'Maret',
+      'April',
+      'Mei',
+      'Juni',
+      'Juli',
+      'Agustus',
+      'September',
+      'Oktober',
+      'November',
+      'Desember'
+   );
+   $pecahkan = explode('-', $tanggal);
+
+   // variabel pecahkan 0 = tanggal
+   // variabel pecahkan 1 = bulan
+   // variabel pecahkan 2 = tahun
+
+   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+}
