@@ -1,7 +1,7 @@
 <div class="row my-3">
    <div class="col-md-12">
       <div class="alert alert-info py-2">
-         <i class="fas fa-info-circle"></i> Selamat Datang di <strong> ELTIPonsel </strong>
+         <i class="fas fa-info-circle"></i> Selamat Datang <strong><?= $_SESSION['nama_pengguna']; ?></strong> di Aplikasi ELTIPonsel.
       </div>
    </div>
 </div>

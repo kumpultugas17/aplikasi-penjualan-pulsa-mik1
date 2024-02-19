@@ -56,7 +56,7 @@
                <a target="_blank" href="modules/laporan/pdf.php?tgl_awal=<?= $tgl_awal ?>&tgl_akhir=<?= $tgl_akhir ?>" class="btn btn-danger bg-gradient float-end">
                   <i class="fas fa-file-pdf"></i> Export pdf
                </a>
-               <a target="_blank" href="modules/laporan/xls.php?tgl_awal=<?= $tgl_awal ?>&tgl_akhir=<?= $tgl_akhir ?>" class="btn btn-success bg-gradient float-end me-2">
+               <a target="_blank" href="modules/laporan/excel.php?tgl_awal=<?= $tgl_awal ?>&tgl_akhir=<?= $tgl_akhir ?>" class="btn btn-success bg-gradient float-end me-2">
                   <i class="fas fa-file-excel"></i> Export xls</a>
             <?php
             }
