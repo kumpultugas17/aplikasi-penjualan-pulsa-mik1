@@ -28,7 +28,7 @@
                <a class="nav-link <?= $_GET['module'] == 'pengguna' ? 'active' : '' ?>" aria-current="page" href="index.php?module=pengguna"><i class="fas fa-user-lock"></i> Pengguna</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" aria-current="page" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+               <a class="nav-link" aria-current="page" href="logout.php" onclick="return confirm('Apakah anda ingin logout?')" ><i class="fas fa-sign-out-alt"></i> Logout</a>
             </li>
          </ul>
       </div>
